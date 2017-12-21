@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
-from concerts.database import Database
 from concerts.models import Concerts, Bands, Places, Organizers 
 from .forms import BandForm, ConcertForm, OrganizerForm, PlaceForm
 
