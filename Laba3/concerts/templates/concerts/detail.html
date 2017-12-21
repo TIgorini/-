@@ -1,0 +1,84 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title> Concetrs schedule </title>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/concerts.css' %}">
+	</head>
+
+	<body scroll="true">
+		<div class="page-header">
+			<h1>Concerts Schedule</h1>
+		</div>
+
+		<form id="edit" action="{% url 'concerts:edit' concert.concert_id%}">
+		<div class="row">
+			<h4 class="col-md-3 col-md-offset-1">Band information</h4>
+			<h4 class="col-md-3">Place and Date</h4>
+			<h4 class="col-md-3">Organizer</h4>
+		</div>
+		<div class="row">
+			<div class="col-md-2 col-md-offset-1">
+				<p>
+					<label for="id_b_name">Name:</label> 
+					<input disabled="true" name="b_name" value="{{concert.band.b_name}}" required="" maxlength="45" id="id_b_name" type="text">
+				</p>
+				<p>
+					<label for="id_country">Country:</label> 
+					<input disabled="true" name="country" value="{{concert.band.country}}" required="" maxlength="45" id="id_country" type="text">
+				</p>
+				<p>
+					<label for="id_albums_num">Albums numbers:</label> 
+					<input disabled="true" name="albums_num" value="{{concert.band.albums_num}}" required="" id="id_albums_num" type="number">
+				</p>
+			</div>
+			<div class="col-md-2">
+				<p>
+					<label for="id_pl_name">Name:</label> 
+					<input disabled="true" name="pl_name" value="{{concert.place.pl_name}}" required="" maxlength="45" id="id_pl_name" type="text">
+				</p>
+				<p>
+					<label for="id_city">City:</label> 
+					<input disabled="true" name="city" value="{{concert.place.city}}" required="" maxlength="45" id="id_city" type="text">
+				</p>
+				<p>
+					<label for="id_capacity">Place capacity:</label> 
+					<input disabled="true" name="capacity" value="{{concert.place.capacity}}" required="" id="id_capacity" type="number">
+				</p>
+			</div>
+        	<div class="col-md-2">
+        		<p>
+        			<label for="id_price">Price:</label> 
+        			<input disabled="true" name="price" value="{{concert.price}}" required="" id="id_price" step="any" type="number">
+        		</p>
+				<p>
+					<label for="id_date">Date:</label> 
+					<input disabled="true" name="date" value="{{concert.date}}" required="" id="id_date" type="text">
+				</p>
+				<p>
+					<label for="id_description">Description:</label> 
+					<textarea disabled="true" name="description" rows="10" id="id_description" cols="40">{{concert.description}}</textarea>
+				</p>
+			</div>
+       		<div class="col-md-2">
+       			<p>
+       				<label for="id_org_name">Name:</label> 
+       				<input disabled="true" name="org_name" value="{{concert.org.org_name}}" required="" maxlength="45" id="id_org_name" type="text">
+       			</p>	
+				<p>
+					<label for="id_commercial">Is commercial:</label> 
+					<input disabled="true" name="commercial" value="{{concert.org.commercial}}" id="id_commercial" type="checkbox">
+				</p>
+			</div> 
+		</div>
+		 </form>
+
+		<div class="row">
+       		<form id="cancel" action="{% url 'concerts:index'%}"></form>
+       		<button form="cancel" type="submit" class="btn btn-default col-md-1 col-md-offset-1 btn-md">Cancel</button>
+       		<button form="edit" type="submit" class="btn btn-success col-md-1 col-md-offset-1 btn-md">Edit</button>
+    	</div>
+
+    </body>
+</html>

@@ -1,0 +1,98 @@
+[ { "date": "2017-08-25",
+	"price": 700,
+	"band": {
+		"b_name": "Alt-j",
+		"country": "Great Britain",
+		"albums_num": 3
+	},
+	"place": {
+		"pl_name": "Platform",
+		"city": "Kyiv",
+		"capacity": 2000
+	},
+	"organizer": {
+		"org_name": "Karabas",
+		"commercial": false
+	},
+	"description": "First in Ukraine Alt-j concert. And I missed it"
+},
+
+{	
+	"date": "2017-07-16",
+	"price": 800,
+	"band": {
+		"b_name": "Foals",
+		"country": "Great Britain",
+		"albums_num": 4
+	},
+	"place": {
+		"pl_name": "Platform",
+		"city": "Kyiv",
+		"capacity": 2000
+	},
+	"organizer": {
+		"org_name": "Karabas",
+		"commercial": false
+	},
+	"description":"Join into our club of Foals lovers in Kyiv"
+},
+
+{	
+	"date": "1991-05-13",
+	"price": 900,
+	"band": {
+		"b_name": "Nirvana",
+		"country": "USA",
+		"albums_num": 4
+	},
+	"place": {
+		"pl_name": "Olimpic Stadium",
+		"city": "Kyiv",
+		"capacity": 20000
+	},
+	"organizer": {
+		"org_name": "Shotgun Company",
+		"commercial": true
+	},
+	"description":"Get this man a gun and listen grunge"
+},
+
+{	
+	"date": "2018-03-21",
+	"price": 250,
+	"band": {
+		"b_name": "Один в каное",
+		"country": "Ukraine",
+		"albums_num": 1
+	},
+	"place": {
+		"pl_name": "Sentrum",
+		"city": "Kyiv",
+		"capacity": 1500
+	},
+	"organizer": {
+		"org_name": "Igor Studio",
+		"commercial": false
+	},
+	"description":"My favorite ukrainian group. Your too (0 o0)"
+},
+
+{	
+	"date": "2017-06-26",
+	"price": 250,
+	"band": {
+		"b_name": "5`nizza",
+		"country": "Ukraine",
+		"albums_num": 2
+	},
+	"place": {
+		"pl_name": "Atlas",
+		"city": "Kyiv",
+		"capacity": 1500
+	},
+	"organizer": {
+		"org_name": "Oracle",
+		"commercial": true
+	},
+	"description":"It`s time for friday ))"
+} ]
