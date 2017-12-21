@@ -1,0 +1,28 @@
+.page-header {
+	background-color: #2f222f;
+	margin-top: 0;
+    padding: 10px 10px 10px 40px;
+	color: #ffffff;
+	font-size: 36pt;
+	font-family: Aria, serif;
+}
+
+.search {
+	padding-left: 20px;
+	font-size: 14pt;	
+}
+
+.forms-search {
+	padding-top: 9px;
+}
+
+.text-field {
+	height: 25px;
+}
+
+.edit-btn {
+	width: 10px;
+}
+
+
+

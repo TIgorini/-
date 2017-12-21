@@ -1,0 +1,106 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title> Concetrs schedule </title>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/concerts.css' %}">
+	</head>
+
+	<body>
+		<div class="page-header">
+			<h1>Concerts Schedule</h1>
+		</div>
+
+		<div>
+			<h5 class="search col-md-1">Search</h5> 
+			<div class="forms-search">
+				<form action="{% url 'concerts:index'%}" method="post">
+					{% csrf_token %}
+					<div class="col-md-2">
+						<label for="comm" >commercial: </label>
+						<input id="comm" type="text" name="comm" placeholder="True/False" class="text-field" pattern="(True)|(False)" size="8">
+					</div>
+					<div class="col-md-3">
+						<label for="bdate">date: from </label>
+						<input id="bdate" type="text" name="bdate" class="text-field" placeholder="yyyy-mm-dd" size="9" pattern="[0-9]{4}-(0[0-9]|1[0-2])-([0-2][0-9]|3[0-1])">
+						<label for="tdate"> to </label>
+						<input id="tdate" type="text" name="tdate" class="text-field" placeholder="yyyy-mm-dd" size="9" pattern="[0-9]{4}-(0[0-9]|1[0-2])-([0-2][0-9]|3[0-1])">
+					</div>
+					<div class="col-md-3"> 
+						<label for="word">search in description: </label>
+						<input id="word" type="text" size="15" name="word" class="text-field">
+					</div>
+					<button class="btn" type="confirm">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</form>
+			</div>
+		</div>
+
+		<hr align="center">
+		<table class="table table-striped table-hover table-condensed">
+			<thead>
+				<tr>
+					<th>Band</th>
+					<th>Place</th>
+					<th>City</th>
+					<th>Organizer</th>
+					<th>Price</th>
+					<th>Date</th>
+					<th>Description</th>
+					<th class="edit-btn"></th>
+					<th class="edit-btn"></th>	
+					<th class="edit_btn"></th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for c in concerts %}	
+				<tr>
+					<th>{{c.band.b_name}}</th>
+					<th>{{c.place.pl_name}}</th>
+					<th>{{c.place.city}}</th>
+					<th>{{c.org.org_name}}</th>
+					<th>{{c.price}}</th>
+					<th>{{c.date}}</th>
+					<th>{{c.description}}</th>
+					<th class="edit-btn">
+						<form action="{% url 'concerts:detail' c.concert_id %}">
+							<button type="submit" class="btn  btn-sm">
+								<span class="glyphicon glyphicon-option-horizontal"></span>
+							</button>
+						</form>
+					</th>
+					<th class="edit-btn">
+						<form action="{% url 'concerts:edit' c.concert_id %}">
+							<button type="submit" class="btn btn-success btn-sm">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</button>
+						</form>
+					</th>
+					<th class="edit-btn">
+						<form action="{% url 'concerts:remove' c.concert_id %}" method="post">
+							{% csrf_token %}
+							<button type="submit" class="btn btn-danger btn-sm">
+								<span class="glyphicon glyphicon-minus"></span>
+							</button>
+						</form>
+					</th>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	
+		<div class="col-lg-2 col-lg-offset-4 col-sm-2 col-sm-offset-3 col-xs-2 col-xs-offset-3">	
+			<form action="{% url 'concerts:create'%}">
+				<button type="submit" class="btn btn-success btn-block btn-sm"> 
+					<span class="glyphicon glyphicon-plus"></span>
+				</button>
+			</form>
+		</div> <div class="col-lg-2 col-lg-offset-4 col-sm-2 col-sm-offset-5 col-xs-3 col-xs-offset-4">
+			<form action="{% url 'concerts:load' %}">
+				<button type="submit" class="btn btn-block btn-sm">Reload data</button>
+			</form>
+		</div>
+	</body>
+</html>
